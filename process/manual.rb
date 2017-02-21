@@ -1,5 +1,6 @@
-require '~/Sites/smart_home/config/environment'
 require 'pi_piper'
+require '~/Sites/smart_home/config/environment'
+
 
 loop do
   controls = Control.all
