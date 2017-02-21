@@ -1,4 +1,5 @@
 require 'pi_piper'
+include PiPiPer
 require '~/Sites/smart_home/config/environment'
 
 
