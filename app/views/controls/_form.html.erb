@@ -1,0 +1,33 @@
+<%= form_for(control) do |f| %>
+  <% if control.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(control.errors.count, "error") %> prohibited this control from being saved:</h2>
+
+      <ul>
+      <% control.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pin %>
+    <%= f.select :pin, @pins %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time_to_turn_control_on_if_automatic %>
+    <%= f.time_select :configure, :ampm => true %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

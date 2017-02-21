@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @control.name %>
+</p>
+
+<p>
+  <strong>Pin:</strong>
+  <%= @control.pin %>
+</p>
+
+<p>
+  <strong>Time to turn control ON:</strong>
+  <%= @control.configure.strftime("at %I:%M%p") %>
+</p>
+
+<%= link_to 'Edit', edit_control_path(@control) %> |
+<%= link_to 'Back', controls_path %>
