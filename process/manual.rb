@@ -1,10 +1,14 @@
 require '~/Sites/smart_home/config/environment'
+require 'pi_piper'
 
 loop do
   controls = Control.all
   for control in controls
-    puts "Control Name = "+control.name
-    puts "Control pin = ", control.pin
-    puts "Control Time = ", control.configure
+    pin = PiPiper::Pin.new(:pin => control.pin, :direction => :out)
+    if control.automated
+      pin.on
+    else
+      pin.off
+    end
   end
 end
