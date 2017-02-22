@@ -4,8 +4,7 @@ class CreateControls < ActiveRecord::Migration[5.0]
       t.string :name
       t.integer :pin
       t.time :configure
-      t.boolean :automated, :default => false;
-
+      t.boolean :automated, :default => false
       t.timestamps
     end
   end
