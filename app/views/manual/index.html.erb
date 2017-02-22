@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Manual Control</h1>
+
+<table>
+  <tbody>
+    <% @controls.each do |control| %>
+      <tr>
+        <th valign="middle"><h2><%= control.name %></h2></th>
+        <td>
+          <div class="field">
+            <%= check_box_tag :automated, :data => { :size=>'small', 'on-color'=>'success', 'on-text'=>'ON', 'off-text'=>'OFF', remote: true, url: url_for(action: :toggle, id: control.id), method: "POST"} %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
