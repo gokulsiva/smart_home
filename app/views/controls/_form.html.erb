@@ -1,3 +1,9 @@
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#switch').bootstrapSwitch();
+});
+</script>
+
 <%= form_for(control) do |f| %>
   <% if control.errors.any? %>
     <div id="error_explanation">
@@ -23,7 +29,7 @@
 
   <div class="field">
     <%= f.label :value_if_manual %>
-    <%= f.check_box :automated, :data => { :size=>'small', 'on-color'=>'success', 'on-text'=>'ON', 'off-text'=>'OFF' } %>
+    <%= f.check_box :automated, :id => 'switch', :data => { :size=>'small', 'on-color'=>'success', 'on-text'=>'ON', 'off-text'=>'OFF' } %>
   </div>
 
   <div class="field">

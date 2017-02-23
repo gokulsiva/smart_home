@@ -4,7 +4,12 @@ class ManualController < ApplicationController
   end
 
   def toggle
-    control = Control.find(params[:id])
-    control.toggle :automated
+    puts Control.find(params[:id]).automated
+    @control = Control.find(params[:id])
+    @control.toggle :automated
+    @control.save
+    puts @control.automated
+    #@controls = Control.all
+    redirect_to :action => :index
   end
 end

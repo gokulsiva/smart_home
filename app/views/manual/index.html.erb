@@ -5,14 +5,18 @@
 <table>
   <tbody>
     <% @controls.each do |control| %>
-      <tr>
-        <th valign="middle"><h2><%= control.name %></h2></th>
-        <td>
-          <div class="field">
-            <%= check_box_tag :automated, :data => { :size=>'small', 'on-color'=>'success', 'on-text'=>'ON', 'off-text'=>'OFF', remote: true, url: url_for(action: :toggle, id: control.id), method: "POST"} %>
-          </div>
-        </td>
-      </tr>
+
+    <%= form_for control, :url => {:action => :toggle}, :method => :get do |f| %>
+    <tr>
+      <th valign="middle"><h2><%= control.name %></h2></th>
+      <td>
+        <div class="field">
+          <%= f.check_box :automated, :name => control.id, :id => 'manualToggle', :data => { :size=>'small', 'on-color'=>'success', 'on-text'=>'ON', 'off-text'=>'OFF'} %>
+        </div>
+      </td>
+    </tr>
+    <% end %>
+
     <% end %>
   </tbody>
 </table>
