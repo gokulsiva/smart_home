@@ -1,0 +1,14 @@
+<%= form_for(@main_switch) do |f| %>
+
+<div class="field" align="center">
+  <h2>Control</h2>
+  <%= f.check_box :control, :name => @main_switch.id, :id => 'manualToggle', :data => { :size=>'small', 'on-color'=>'success','off-color'=>'success', 'on-text'=>'Automatic', 'off-text'=>'Manual' } %>
+</div>
+
+<% end %>
+
+<% if @main_switch.control %>
+  <iframe src="<%= controls_path %>" width="100%" height="100%" frameborder="1"></iframe>
+<% else %>
+  <iframe src="<%= manual_index_path %>" width="100%" height="100%" frameborder="1"></iframe>
+<% end %>

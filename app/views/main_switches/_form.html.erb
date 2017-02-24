@@ -1,0 +1,22 @@
+<%= form_for(main_switch) do |f| %>
+  <% if main_switch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(main_switch.errors.count, "error") %> prohibited this main_switch from being saved:</h2>
+
+      <ul>
+      <% main_switch.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :control %>
+    <%= f.check_box :control, :data => { :size=>'small', 'on-color'=>'success', 'off-color'=>'success','on-text'=>'Automatic', 'off-text'=>'Manual' } %>
+</div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

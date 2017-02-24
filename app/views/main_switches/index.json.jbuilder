@@ -1,0 +1,1 @@
+json.array! @main_switches, partial: 'main_switches/main_switch', as: :main_switch

@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <h1>Manual Control</h1>
@@ -7,8 +8,8 @@
 <table valign="middle">
 
   <tr>
-    <th> <h3><%= control.name %></h3> </th>
-    <td>
+    <th width="50%"> <h3><%= control.name %></h3> </th>
+    <td width="50%">
       <label class="switch">
         <input type="checkbox" id="toggle" name="<%= control.id %>"<%="checked" if control.automated %> >
         <div class="slider round"></div>

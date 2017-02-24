@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style type="text/css">
+   html, body, div, iframe { margin:0; padding:0; height:100%; }
+   iframe { position:fixed; display:block; width:100%; border:none; }
+</style>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

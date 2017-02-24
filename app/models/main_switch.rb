@@ -1,0 +1,2 @@
+class MainSwitch < ApplicationRecord
+end
