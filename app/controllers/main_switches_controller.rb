@@ -29,6 +29,7 @@ class MainSwitchesController < ApplicationController
 
     respond_to do |format|
       if @main_switch.save
+        :reset_service
         format.html { redirect_to home_index_path, notice: 'Main switch was successfully created.' }
         format.json { render :show, status: :created, location: @main_switch }
       else
@@ -43,6 +44,7 @@ class MainSwitchesController < ApplicationController
   def update
     respond_to do |format|
       if @main_switch.update(main_switch_params)
+        :reset_service
         format.html { redirect_to @main_switch, notice: 'Main switch was successfully updated.' }
         format.json { render :show, status: :ok, location: @main_switch }
       else
@@ -71,5 +73,16 @@ class MainSwitchesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def main_switch_params
       params.require(:main_switch).permit(:control)
+    end
+
+    def reset_service
+      system "ruby automatic_controller.rb stop"
+      system "ruby manual_controller.rb stop"
+      system "ruby resetpins.rb"
+      if @main_switch.control
+        system "ruby automatic_controller.rb start"
+      else
+        system "ruby manual_controller.rb start"
+      end
     end
 end
