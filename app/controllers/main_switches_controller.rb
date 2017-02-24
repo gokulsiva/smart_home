@@ -76,12 +76,13 @@ class MainSwitchesController < ApplicationController
     end
 
     def reset_service
-      system "ruby automatic_controller.rb stop"
-      system "ruby manual_controller.rb stop"
-      system "ruby resetpins.rb"
       if @main_switch.control
+        system "ruby manual_controller.rb stop"
+        system "ruby resetpins.rb"
         system "ruby automatic_controller.rb start"
       else
+        system "ruby automatic_controller.rb stop"
+        system "ruby resetpins.rb"
         system "ruby manual_controller.rb start"
       end
     end
