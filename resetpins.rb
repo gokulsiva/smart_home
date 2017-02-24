@@ -4,4 +4,3 @@ controls = Control.all
 for control in controls
 system "gpio -g write #{control.pin} 0"
 end
-end
