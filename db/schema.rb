@@ -12,20 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20170224062017) do
 
-  create_table "configs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.boolean  "manual_control"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
   create_table "controls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "pin"
-    t.time     "configure",    default: '2000-01-01 17:05:18'
+    t.time     "configure",    default: '2000-01-01 08:48:47'
     t.boolean  "automated",    default: false
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
-    t.time     "configureoff", default: '2000-01-01 17:05:18'
+    t.time     "configureoff", default: '2000-01-01 08:48:47'
   end
 
   create_table "main_switches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
