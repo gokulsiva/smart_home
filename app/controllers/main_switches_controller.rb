@@ -77,13 +77,13 @@ class MainSwitchesController < ApplicationController
 
     def reset_service
       if @main_switch.control
-        system "ruby manual_controller.rb stop"
-        system "ruby resetpins.rb"
-        system "ruby automatic_controller.rb start"
+        system "ruby /home/pi/Sites/smart_home/manual_controller.rb stop"
+        system "ruby /home/pi/Sites/smart_home/resetpins.rb"
+        system "ruby /home/pi/Sites/smart_home/automatic_controller.rb start"
       else
-        system "ruby automatic_controller.rb stop"
-        system "ruby resetpins.rb"
-        system "ruby manual_controller.rb start"
+        system "ruby /home/pi/Sites/smart_home/automatic_controller.rb stop"
+        system "ruby /home/pi/Sites/smart_home/resetpins.rb"
+        system "ruby /home/pi/Sites/smart_home/manual_controller.rb start"
       end
     end
 end

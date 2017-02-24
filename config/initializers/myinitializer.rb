@@ -1,11 +1,11 @@
-system "ruby automatic_controller.rb stop"
-system "ruby manual_controller.rb stop"
-system "ruby resetpins.rb"
+system "ruby /home/pi/Sites/smart_home/automatic_controller.rb stop"
+system "ruby /home/pi/Sites/smart_home/manual_controller.rb stop"
+system "ruby /home/pi/Sites/smart_home/resetpins.rb"
 switch = MainSwitch.first
 if switch
   if switch.control
-    system "ruby automatic_controller.rb start"
+    system "ruby /home/pi/Sites/smart_home/automatic_controller.rb start"
   else
-    system "ruby manual_controller.rb start"
+    system "ruby /home/pi/Sites/smart_home/manual_controller.rb start"
   end
 end
