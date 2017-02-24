@@ -37,4 +37,3 @@ if switch
     puts "Manual controller startted"
   end
 end
-end
