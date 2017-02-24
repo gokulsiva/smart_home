@@ -19,7 +19,7 @@ command = Thread.new do
 end
 command.join
 
-puts "Pins resetted".
+puts "Pins resetted"
 
 switch = MainSwitch.first
 if switch
