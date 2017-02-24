@@ -11,8 +11,18 @@
 </p>
 
 <p>
-  <strong>Time to turn control ON:</strong>
+  <strong>Manual Control Status:</strong>
+  <%= @control.automated ? "ON" : "OFF" %>
+</p>
+
+<p>
+  <strong>Turn ON Time:</strong>
   <%= @control.configure.strftime("at %I:%M%p") %>
+</p>
+
+<p>
+  <strong>Turn OFF Time:</strong>
+  <%= @control.configureoff.strftime("at %I:%M%p") %>
 </p>
 
 <%= link_to 'Edit', edit_control_path(@control) %> |
