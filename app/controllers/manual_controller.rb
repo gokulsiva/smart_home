@@ -1,4 +1,7 @@
 class ManualController < ApplicationController
+
+  layout "manual"
+
   def index
     @controls = Control.all
   end

@@ -7,4 +7,5 @@ $(document).ready(function() {
     path = path+"/toggle?id="+this.name;
     window.location.href = path;
   });
+
 });

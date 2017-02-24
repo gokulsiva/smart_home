@@ -2,23 +2,22 @@
 
 <h1>Manual Control</h1>
 
-<table>
-  <tbody>
-    <% @controls.each do |control| %>
+<% for control in @controls %>
 
-    <%= form_for control, :url => {:action => :toggle}, :method => :get do |f| %>
-    <tr>
-      <th valign="middle"><h2><%= control.name %></h2></th>
-      <td>
-        <div class="field">
-          <%= f.check_box :automated, :name => control.id, :id => 'manualToggle', :data => { :size=>'small', 'on-color'=>'success', 'on-text'=>'ON', 'off-text'=>'OFF'} %>
-        </div>
-      </td>
-    </tr>
-    <% end %>
+<table valign="middle">
 
-    <% end %>
-  </tbody>
+  <tr>
+    <th> <h3><%= control.name %></h3> </th>
+    <td>
+      <label class="switch">
+        <input type="checkbox" id="toggle" name="<%= control.id %>"<%="checked" if control.automated %> >
+        <div class="slider round"></div>
+      </label>
+    </td>
+  </tr>
+
 </table>
+
+<% end %>
 
 <br>
