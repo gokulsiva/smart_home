@@ -1,3 +1,4 @@
+require File.expand_path('/home/pi/Sites/smart_home/config/environment', __FILE__)
 system "ruby /home/pi/Sites/smart_home/automatic_controller.rb stop"
 system "ruby /home/pi/Sites/smart_home/manual_controller.rb stop"
 system "ruby /home/pi/Sites/smart_home/resetpins.rb"
