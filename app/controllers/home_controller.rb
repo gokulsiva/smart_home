@@ -13,6 +13,15 @@ class HomeController < ApplicationController
     @switch = MainSwitch.find(params[:id])
     @switch.toggle :control
     @switch.save
+    if @switch.control
+      system "ruby /home/pi/Sites/smart_home/manual_controller.rb stop"
+      system "ruby /home/pi/Sites/smart_home/resetpins.rb"
+      system "ruby /home/pi/Sites/smart_home/automatic_controller.rb start"
+    else
+      system "ruby /home/pi/Sites/smart_home/automatic_controller.rb stop"
+      system "ruby /home/pi/Sites/smart_home/resetpins.rb"
+      system "ruby /home/pi/Sites/smart_home/manual_controller.rb start"
+    end
     redirect_to :action => :index
   end
 end
