@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'index/index'
+
   get 'stream/index'
 
   get 'home/index'
