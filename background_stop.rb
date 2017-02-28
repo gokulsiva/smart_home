@@ -35,4 +35,4 @@ command = Thread.new do
 end
 command.join
 
-puts "WebCam Stream turned off"
+puts "WebCam controller stopped"

@@ -41,4 +41,4 @@ command = Thread.new do
   system('ruby /home/pi/Sites/smart_home/webcam_controller.rb start') # long-long programm
 end
 command.join
-puts "Manual controller started"
+puts "Web cam controller started"
