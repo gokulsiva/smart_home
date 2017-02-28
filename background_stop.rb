@@ -22,11 +22,6 @@ command.join
 puts "Pins resetted"
 
 command = Thread.new do
-  system('ruby /home/pi/Sites/smart_home/webcam_controller.rb stop') # long-long programm
-end
-command.join
-
-command = Thread.new do
   stdout, stdeerr, status = Open3.capture3("ps -ef | grep 'vlc'")
 
   ps = stdout.strip.split(/\s+/)

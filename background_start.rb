@@ -38,7 +38,7 @@ if switch
   end
 end
 command = Thread.new do
-  system('ruby /home/pi/Sites/smart_home/webcam_controller.rb start') # long-long programm
+  system('ruby /home/pi/Sites/smart_home/webcam_controller.rb') # long-long programm
 end
 command.join
 puts "Web cam controller started"
