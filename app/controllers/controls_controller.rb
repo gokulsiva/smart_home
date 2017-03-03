@@ -1,4 +1,5 @@
 class ControlsController < ApplicationController
+  before_action :confirm_logged_in
   before_action :set_control, only: [:show, :edit, :update, :destroy]
   before_action :load_pins, only: [:new, :create, :edit, :update]
 

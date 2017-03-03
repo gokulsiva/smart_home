@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def confirm_logged_in
+    unless session[:user_id]
+        flash[:notice] = "Please Log In"
+        redirect_to(login_login_path)
+    end
+  end
+
   def initializer
     system "ruby /home/pi/Sites/smart_home/automatic_controller.rb stop"
     system "ruby /home/pi/Sites/smart_home/manual_controller.rb stop"

@@ -1,5 +1,7 @@
 class MainSwitchesController < ApplicationController
   before_action :set_main_switch, only: [:show, :edit, :update, :destroy]
+  before_action :confirm_logged_in
+  
   layout "switch"
 
   # GET /main_switches

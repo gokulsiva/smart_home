@@ -10,16 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224062017) do
+ActiveRecord::Schema.define(version: 20170303082320) do
+
+  create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "username"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+    t.index ["username"], name: "index_admin_users_on_username", unique: true, using: :btree
+  end
+
+  create_table "configs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean  "manual_control"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "controls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "pin"
-    t.time     "configure",    default: '2000-01-01 08:48:47'
+    t.time     "configure",    default: '2000-01-01 17:05:18'
     t.boolean  "automated",    default: false
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
-    t.time     "configureoff", default: '2000-01-01 08:48:47'
+    t.time     "configureoff", default: '2000-01-01 17:05:18'
   end
 
   create_table "main_switches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
