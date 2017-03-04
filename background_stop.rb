@@ -23,10 +23,19 @@ puts "Pins resetted"
 
 command = Thread.new do
   stdout, stdeerr, status = Open3.capture3("ps -ef | grep 'vlc'")
-
+  ps_length = stdout.strip.split(/\s+/)
+  begin
+  if stdout && stdout != ''
+  stdout, stdeerr, status = Open3.capture3("ps -ef | grep 'vlc'")
   ps = stdout.strip.split(/\s+/)
+  if not ps.length > 24
+  break
+  end
   pid = ps[1]
   system "kill #{pid}"
+  puts "Terminated vlc"
+  end
+  end while ps_length.length > 24
 end
 command.join
 
